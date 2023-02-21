@@ -4,7 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable("repo", (table) => {
-    table.integer("id").primary().notNull().unique();
+    table.increments("document_id").primary().notNull().unique();
     table.boolean("allow_forking");
     table.string("archive_url");
     table.boolean("archived");
@@ -45,6 +45,7 @@ exports.up = function (knex) {
     table.string(`homepage`);
     table.string(`hooks_url`);
     table.string(`html_url`);
+    table.integer("id");
     table.string(`is_template`);
     table.string(`issue_comment_url`);
     table.string(`issue_events_url`);
